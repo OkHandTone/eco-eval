@@ -24,7 +24,6 @@
     <h1>Bienvenue sur notre formulaire d'événement</h1>
 
     <form on:submit={handleSubmit}>
-
         <label for="titre">Titre de l'événement</label>
         <input type="text" id="titre" bind:value={titre} required>
 
@@ -39,20 +38,20 @@
 </main>
 
 <style>
-
     main {
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        max-width: 500px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
     }
 
     h1 {
         text-align: center;
-        color: #333;
+        color: #444;
+        margin-bottom: 1.5rem;
     }
 
     form {
@@ -61,29 +60,37 @@
     }
 
     label {
-        margin-top: 10px;
-        font-weight: bold;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
     }
 
     input {
-        padding: 8px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        outline: none;
     }
 
     button {
-        margin-top: 20px;
-        padding: 10px;
-        background-color: #28a745;
+        padding: 0.75rem;
+        background-color: #007bff;
         color: white;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
+        font-size: 1rem;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
 
     button:hover {
-        background-color: #218838;
+        background-color: #0056b3;
     }
-    
 </style>
