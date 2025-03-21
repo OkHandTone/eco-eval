@@ -1,48 +1,27 @@
 <script>
-    let titre = '';
-    let date = '';
-    let lieu = '';
-    let events = [];
-    let loading = true;
-    let error = null;
+	import { goto } from "$app/navigation";
 
-    const fetchEvents = async () => {
-        loading = true;
-        error = null;
-        try {
-            const response = await fetch('/api/events');
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const form = e.target;
+        if ((form instanceof HTMLFormElement)) {
+            const url = new URL('/', window.location.origin);
+            const response = await fetch(url.toString(), {
+                method: 'POST',
+                body: new FormData(form),
+            });
+
             if (response.ok) {
-                events = await response.json();
+                form.reset();
+                goto('/');
             } else {
-                throw new Error('Failed to fetch events');
+                console.error('Failed to submit alert');
             }
-        } catch (err) {
-            error = err.message;
-        } finally {
-            loading = false;
         }
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await fetch('/api/events', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ titre, date, lieu })
-        });
-        if (response.ok) {
-            alert('succès');
-            // Refresh the events list after adding a new event
-            fetchEvents();
-        } else {
-            alert('erreur');
-        }
-    };
+    }
 
     // Fetch events initially
-    fetchEvents();
+    // fetchEvents();
 </script>
 
 <main>
@@ -51,20 +30,20 @@
     <section>
         <h2>Créer un nouvel événement</h2>
         <form on:submit={handleSubmit}>
-            <label for="titre">Titre de l'événement</label>
-            <input type="text" id="titre" bind:value={titre} required>
+            <label for="title">Titre de l'événement</label>
+            <input type="text" id="title" name="title" required>
 
             <label for="date">Date de l'événement</label>
-            <input type="date" id="date" bind:value={date} required>
+            <input type="date" id="date" name="date" required>
 
             <label for="lieu">Lieu de l'événement</label>
-            <input type="text" id="lieu" bind:value={lieu} required>
+            <input type="text" id="place" name="place" required>
 
             <button type="submit">Créer l'événement</button>
         </form>
     </section>
 
-    <section>
+    <!-- <section>
         <h2>Liste des Événements</h2>
         <button on:click={fetchEvents}>Rafraîchir les événements</button>
 
@@ -85,7 +64,7 @@
                 {/each}
             </ul>
         {/if}
-    </section>
+    </section> -->
 </main>
 
 <style>
