@@ -1,38 +1,23 @@
-# sv
+Projet Express – Agenda d’événements sobres : Adrien Dupont, Martin Leroy
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+L'objectif de ce projet est de développer une application web éco-conçue permettant de consulter et ajouter des
+événements à venir. L’application doit être légère, responsive, rapide et minimaliste.
 
-## Creating a project
+pour cela, on s est posé plusieur question sur comment mettre en place cette agenda
 
-If you're seeing this, you've probably already done this step. Congrats!
+Il nous fallait : 
+  Un framework performant
+  Un base de donnée légér est adapté 
 
-```bash
-# create a new project in the current directory
-npx sv create
+Pour cela, nous avons decidé de partir sur le Framework svelte. Pourquoi ?... (adrien)
 
-# create a new project in my-app
-npx sv create my-app
-```
 
-## Developing
+Pour la base, MongoDB offre plusieurs avantages en matière d'éco-conception. Tout d'abord, sa capacité à gérer efficacement de grandes quantités de données permet de réduire la consommation de ressources serveur, contribuant ainsi à une empreinte carbone plus faible.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+En outre, MongoDB propose des fonctionnalités intégrées de réplication et de partitionnement (sharding), qui améliorent la résilience et la disponibilité des données sans nécessiter de solutions tierces énergivores. Cela garantit une haute disponibilité tout en minimisant l'impact environnemental.
 
-```bash
-npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
 
-## Building
+Site pour la phase de 1er test : 
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+![image](https://github.com/user-attachments/assets/6b11cd39-0168-4003-8e87-b27cbc107479)
