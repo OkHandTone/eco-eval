@@ -9,12 +9,22 @@ Il nous fallait :
   Un framework performant
   Un base de donnée légér est adapté 
 
-Pour cela, nous avons decidé de partir sur le Framework svelte. Pourquoi ?... (adrien)
+Front-end
+Pour créer l’interface utilisateur notre choix s’est porté sur Svelte pour plusieurs raisons :
 
+Légèreté du framework par rapports aux autres : JS natif et peu de librairies
+Courbe d’apprentissage plus facile que les autres frameworks
+Intégration dans le meta-framework SvelteKit pour des fonctionnalités back-end que Svelte tout seul n’offre pas
 
-Pour la base, MongoDB offre plusieurs avantages en matière d'éco-conception. Tout d'abord, sa capacité à gérer efficacement de grandes quantités de données permet de réduire la consommation de ressources serveur, contribuant ainsi à une empreinte carbone plus faible.
+Svelte n’est ni plus ni moins qu’un système de templating pour améliorer l’expérience développeur et permettre une meilleure extensibilité pour l’application.
 
-En outre, MongoDB propose des fonctionnalités intégrées de réplication et de partitionnement (sharding), qui améliorent la résilience et la disponibilité des données sans nécessiter de solutions tierces énergivores. Cela garantit une haute disponibilité tout en minimisant l'impact environnemental.
+Back-end
+Le meta-framework SvelteKit offre des fonctionnalités comme l’interaction avec une base de données sans avoir besoin d’API et cela évite donc les latences entre serveurs ou applications en plus de tout simplifier.
+Dans notre application le fichier +page.server.js est exécuté sur le serveur avant que celui-ci ne génère le HTML du fichier +page.svelte.
+La fonction load charge la template avec les événements enregistrés tandis que la fonction action ajoute un événement quand la page est rafraîchie et le formulaire reçu de la même page.
+
+Nous avons opté pour une solution de persistance avec une base de données et non le local storage du client afin de rendre les événements accessibles depuis n’importe quel appareil.
+C’est MongoDB que nous avons retenue en raison de la simplicité du besoin (des documents avec 3 informations chacune). Une base de donnés SQL aurait été plus performante mais sur de la data aussi peu volumineuse la différence est négligeable.
 
 
 
